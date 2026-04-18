@@ -1,7 +1,7 @@
 export const site = {
   name: "Zac Yang",
   role: "Software Engineer",
-  location: "San Francisco, CA",
+  location: "Singapore",
   tagline: "Building thoughtful, high-craft interfaces and the systems behind them.",
   intro:
     "I design and build software products end to end — from the data models underneath to the pixels on screen. I care about clarity, performance, and the quiet details that make a product feel good to use.",
@@ -17,6 +17,14 @@ export const site = {
     "TypeScript & React",
     "Go & Postgres",
   ],
+  education: [
+    {
+      school: "National University of Singapore",
+      degree: "B.Comp. in Computer Science",
+      period: "2017 — 2021",
+      detail: "Focus on distributed systems and human–computer interaction.",
+    },
+  ],
   experience: [
     {
       company: "Acme Systems",
@@ -29,6 +37,7 @@ export const site = {
         "Owned the frontend architecture and mentored four engineers through major features.",
         "Cut cold-load time from 3.8s to 1.2s on the dashboard.",
       ],
+      stack: ["typescript", "react", "nextjs", "postgres", "go", "docker"],
     },
     {
       company: "Northwind Labs",
@@ -40,6 +49,7 @@ export const site = {
         "Designed the auth service still in use today.",
         "Shipped a metrics pipeline that reduced ingest cost by 40%.",
       ],
+      stack: ["go", "postgres", "kubernetes", "grafana", "python"],
     },
     {
       company: "Indie / Freelance",
@@ -51,6 +61,41 @@ export const site = {
         "Designed and built three early-stage products end to end.",
         "One made it to Series A; the other two taught me more.",
       ],
+      stack: ["typescript", "react", "tailwindcss", "nodedotjs", "figma"],
+    },
+  ],
+  projects: [
+    {
+      name: "Pixelpress",
+      tagline: "A minimal static site generator for indie writers.",
+      description:
+        "A zero-config SSG with first-class Markdown and RSS, shipped as a single binary. Used by a small group of bloggers and weeknote writers.",
+      href: "https://github.com",
+      stack: ["go", "markdown", "tailwindcss"],
+    },
+    {
+      name: "Terminal Notes",
+      tagline: "A keyboard-first note app that lives in your shell.",
+      description:
+        "A TUI notebook with fuzzy search, tags, and exportable plain-text storage. Syncs over Git so notes are portable by default.",
+      href: "https://github.com",
+      stack: ["rust", "sqlite", "git"],
+    },
+    {
+      name: "Signal Board",
+      tagline: "A small dashboard for watching what I ship.",
+      description:
+        "Reads my own deployment webhooks, commits, and writing feed into a single daily digest. Less than 500 lines of code end to end.",
+      href: "https://github.com",
+      stack: ["typescript", "bun", "react", "tailwindcss"],
+    },
+    {
+      name: "Field Kit",
+      tagline: "A tiny CLI for offline-first field research trips.",
+      description:
+        "Offline note capture with GPS tagging that syncs when you're back online. Built for a friend doing ecology work in low-signal areas.",
+      href: "https://github.com",
+      stack: ["typescript", "nodedotjs", "sqlite"],
     },
   ],
   contact: {
@@ -64,3 +109,8 @@ export const site = {
 } as const;
 
 export type Experience = (typeof site.experience)[number];
+export type Project = (typeof site.projects)[number];
+export type Education = (typeof site.education)[number];
+export type StackKey =
+  | Experience["stack"][number]
+  | Project["stack"][number];

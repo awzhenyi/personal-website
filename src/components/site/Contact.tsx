@@ -4,7 +4,7 @@ import { Section } from "./Section";
 
 export function Contact() {
   return (
-    <Section id="contact" eyebrow="Chapter 03" title="Contact">
+    <Section id="contact" title="Contact">
       <div className="space-y-8">
         <p className="font-body text-lg leading-relaxed text-on-surface md:text-xl">
           The fastest way to reach me is email. I read everything and try to reply within a few days.

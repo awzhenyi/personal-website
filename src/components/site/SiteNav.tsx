@@ -7,6 +7,7 @@ const NAV_LINKS = [
   { id: "home", label: "Home" },
   { id: "about", label: "About" },
   { id: "experience", label: "Experience" },
+  { id: "projects", label: "Projects" },
   { id: "contact", label: "Contact" },
 ] as const;
 
@@ -71,14 +72,14 @@ export function SiteNav() {
       {/* underline indicator on mobile, just a hairline of accent */}
       <div className="h-[3px] bg-primary-container dark:bg-primary/70 md:hidden" />
       {/* mobile link row */}
-      <div className="flex items-center justify-between gap-2 px-5 pb-3 pt-2 md:hidden">
+      <div className="flex items-center justify-between gap-1 px-4 pb-3 pt-2 md:hidden">
         {NAV_LINKS.map((link) => (
           <a
             key={link.id}
             href={`#${link.id}`}
             aria-current={active === link.id ? "page" : undefined}
             className={cn(
-              "font-display text-[9px] uppercase tracking-[0.18em] transition-colors",
+              "font-display text-[8.5px] uppercase tracking-[0.12em] transition-colors sm:text-[9px] sm:tracking-[0.16em]",
               active === link.id
                 ? "text-on-surface dark:text-primary"
                 : "text-on-surface/55 dark:text-on-surface/60",
