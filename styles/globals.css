@@ -1,0 +1,110 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-surface: var(--surface);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-surface-container-highest: var(--surface-container-highest);
+  --color-surface-bright: var(--surface-bright);
+
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-variant: var(--on-surface-variant);
+
+  --color-primary: var(--primary);
+  --color-primary-container: var(--primary-container);
+  --color-on-primary: var(--on-primary);
+  --color-on-primary-container: var(--on-primary-container);
+
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-outline: var(--outline);
+  --color-outline-variant: var(--outline-variant);
+
+  --color-background: var(--surface);
+  --color-foreground: var(--on-surface);
+
+  --font-display: "Press Start 2P", ui-monospace, monospace;
+  --font-body: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+}
+
+:root {
+  /* Light: "Tactile Cartridge" — warm aged-plastic beige, bitter-chocolate ink,
+     Game Boy yellow accent. Derived from 8_bit_nostalgia/DESIGN.md. */
+  --surface: #fbfbe2;
+  --surface-container: #efefd7;
+  --surface-container-low: #f5f5dc;
+  --surface-container-high: #eaead1;
+  --surface-container-highest: #e4e4cc;
+  --surface-bright: #ffffff;
+
+  --on-surface: #1b1d0e;
+  --on-surface-variant: #4d4634;
+
+  --primary: #735c00;
+  --primary-container: #ffd54f;
+  --on-primary: #ffffff;
+  --on-primary-container: #735c00;
+
+  --secondary: #745853;
+  --accent: #ffd54f;
+  --outline: #7f7662;
+  --outline-variant: #d0c6ae;
+
+  --shadow-rgb: 27 29 14;
+}
+
+.dark {
+  /* Dark: "Neon Arcade Archive" — deep-void purple with hyper-magenta and
+     oxygen cyan. Derived from neon_arcade_199x/DESIGN.md. */
+  --surface: #140727;
+  --surface-container: #201139;
+  --surface-container-low: #190b30;
+  --surface-container-high: #271641;
+  --surface-container-highest: #2e1c4b;
+  --surface-bright: #352254;
+
+  --on-surface: #eee0ff;
+  --on-surface-variant: #b5a4cd;
+
+  --primary: #df8eff;
+  --primary-container: #d779ff;
+  --on-primary: #4f006d;
+  --on-primary-container: #3d0055;
+
+  --secondary: #00fbfb;
+  --accent: #ff51fa;
+  --outline: #7e6f95;
+  --outline-variant: #4f4165;
+
+  --shadow-rgb: 0 0 0;
+}
+
+@layer base {
+  * {
+    @apply outline-primary;
+  }
+  *:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+  }
+  body {
+    @apply bg-surface text-on-surface font-body;
+  }
+  ::selection {
+    background: var(--primary-container);
+    color: var(--on-primary-container);
+  }
+  .dark ::selection {
+    background: var(--primary);
+    color: var(--on-primary);
+  }
+}

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LEVEL_01 - SAVE POINT</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;family=Space+Grotesk:wght@300;400;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #140727;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #eee0ff;
+            overflow-x: hidden;
+        }
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+            z-index: 100;
+        }
+        .crt-bloom {
+            text-shadow: 0 0 8px rgba(223, 142, 255, 0.8);
+        }
+        .cyan-bloom {
+            text-shadow: 0 0 8px rgba(0, 251, 251, 0.8);
+        }
+        .pixel-border {
+            box-shadow: 4px 4px 0px 0px #3d0055;
+        }
+        .pixel-border:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px 0px #3d0055;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#230023",
+                        "on-tertiary-fixed-variant": "#6a006a",
+                        "surface-container-high": "#271641",
+                        "surface-container-low": "#190b30",
+                        "on-secondary": "#005c5c",
+                        "primary-fixed-dim": "#cf62ff",
+                        "on-error-container": "#ffb2b9",
+                        "on-primary-container": "#3d0055",
+                        "surface-container-highest": "#2e1c4b",
+                        "secondary-container": "#006a6a",
+                        "on-secondary-container": "#d9fffe",
+                        "on-primary-fixed": "#000000",
+                        "on-tertiary-fixed": "#320032",
+                        "error": "#ff6e84",
+                        "on-primary-fixed-variant": "#4b0069",
+                        "secondary-fixed": "#00fbfb",
+                        "surface-container-lowest": "#000000",
+                        "tertiary-dim": "#ff51fa",
+                        "on-tertiary": "#400040",
+                        "on-secondary-fixed": "#004747",
+                        "secondary-fixed-dim": "#00ecec",
+                        "secondary": "#00fbfb",
+                        "tertiary": "#ff51fa",
+                        "surface-tint": "#df8eff",
+                        "on-surface": "#eee0ff",
+                        "primary-container": "#d779ff",
+                        "surface-variant": "#2e1c4b",
+                        "surface-bright": "#352254",
+                        "on-primary": "#4f006d",
+                        "inverse-surface": "#fef7ff",
+                        "primary-fixed": "#d779ff",
+                        "secondary-dim": "#00ecec",
+                        "on-error": "#490013",
+                        "on-surface-variant": "#b5a4cd",
+                        "background": "#140727",
+                        "on-background": "#eee0ff",
+                        "outline": "#7e6f95",
+                        "inverse-on-surface": "#5d4e73",
+                        "primary-dim": "#bb00fd",
+                        "primary": "#df8eff",
+                        "tertiary-fixed-dim": "#ff61f8",
+                        "surface-dim": "#140727",
+                        "surface-container": "#201139",
+                        "surface": "#140727",
+                        "tertiary-container": "#fe00fe",
+                        "outline-variant": "#4f4165",
+                        "error-dim": "#d73357",
+                        "on-secondary-fixed-variant": "#006666",
+                        "tertiary-fixed": "#ff81f5",
+                        "inverse-primary": "#9900d1",
+                        "error-container": "#a70138"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Press Start 2P"],
+                        "body": ["Space Grotesk"],
+                        "label": ["Space Grotesk"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background">
+<div class="scanlines"></div>
+<!-- TopNavBar -->
+<header class="bg-[#140727] text-[#df8eff] font-['Press_Start_2P'] uppercase text-xs tracking-tighter docked full-width top-0 rounded-none border-b-4 border-[#352254] shadow-[0_0_15px_rgba(223,142,255,0.3)] sticky z-50">
+<div class="flex justify-between items-center w-full px-6 py-4 h-16">
+<div class="text-xl font-black text-[#00fbfb] drop-shadow-[0_0_5px_#00fbfb] crt-bloom">LEVEL_01</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-[#eee0ff] opacity-80 hover:bg-[#352254] hover:text-[#00fbfb] transition-all active:translate-y-0.5 active:translate-x-0.5 px-2 py-1" href="#">QUESTS</a>
+<a class="text-[#eee0ff] opacity-80 hover:bg-[#352254] hover:text-[#00fbfb] transition-all active:translate-y-0.5 active:translate-x-0.5 px-2 py-1" href="#">EQUIP</a>
+<a class="text-[#df8eff] border-b-2 border-[#df8eff] pb-1 hover:bg-[#352254] hover:text-[#00fbfb] transition-all" href="#">SAVE</a>
+<a class="text-[#eee0ff] opacity-80 hover:bg-[#352254] hover:text-[#00fbfb] transition-all active:translate-y-0.5 active:translate-x-0.5 px-2 py-1" href="#">EXIT</a>
+</nav>
+<div class="hidden md:block font-bold text-secondary cyan-bloom">HI-SCORE: 9999</div>
+</div>
+</header>
+<main class="min-h-screen pt-12 pb-24 px-4 sm:px-6 lg:px-8">
+<div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Hero / Header Section -->
+<div class="lg:col-span-12 mb-8">
+<div class="inline-block bg-surface-container-high px-4 py-2 mb-4 border-l-4 border-tertiary">
+<span class="font-headline text-tertiary text-sm tracking-tighter uppercase">Status: Connected</span>
+</div>
+<h1 class="font-headline text-4xl md:text-6xl text-primary crt-bloom leading-tight mb-4">SAVE POINT</h1>
+<p class="font-body text-xl md:text-2xl text-on-surface-variant max-w-2xl leading-relaxed">
+                    Leave your mark on the leaderboard. Transmit your message to the mainframe to secure your progress.
+                </p>
+</div>
+<!-- Left Column: Contact Methods / Social -->
+<div class="lg:col-span-4 space-y-8">
+<div class="bg-surface-container-high p-1">
+<div class="bg-surface-container-highest p-4 flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary text-2xl" data-icon="terminal">terminal</span>
+<h2 class="font-headline text-xs text-secondary uppercase">Player Stats</h2>
+</div>
+<div class="p-6 space-y-6 bg-surface-container">
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-12 h-12 bg-surface-container-lowest flex items-center justify-center border-2 border-outline-variant group-hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="mail">mail</span>
+</div>
+<div>
+<p class="text-[10px] font-headline text-outline uppercase">Email Link</p>
+<p class="font-body font-bold text-on-surface group-hover:text-primary">ADMIN@RETRO_VOID.SYS</p>
+</div>
+</div>
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-12 h-12 bg-surface-container-lowest flex items-center justify-center border-2 border-outline-variant group-hover:border-secondary transition-colors">
+<span class="material-symbols-outlined text-secondary" data-icon="location_on" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<div>
+<p class="text-[10px] font-headline text-outline uppercase">Coordinates</p>
+<p class="font-body font-bold text-on-surface">SECTOR 7G, NEON DISTRICT</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Social Pixel Icons -->
+<div class="bg-surface-container-lowest border-2 border-outline-variant p-6">
+<h3 class="font-headline text-[10px] text-tertiary mb-6 uppercase">Sync External Channels</h3>
+<div class="grid grid-cols-2 gap-4">
+<a class="flex flex-col items-center justify-center p-4 bg-surface-container-high hover:bg-surface-bright transition-all border-b-4 border-on-primary-container" href="#">
+<span class="material-symbols-outlined text-primary text-3xl mb-2" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="font-headline text-[8px] text-on-surface">TWITCH</span>
+</a>
+<a class="flex flex-col items-center justify-center p-4 bg-surface-container-high hover:bg-surface-bright transition-all border-b-4 border-on-secondary-container" href="#">
+<span class="material-symbols-outlined text-secondary text-3xl mb-2" data-icon="diamond" style="font-variation-settings: 'FILL' 1;">diamond</span>
+<span class="font-headline text-[8px] text-on-surface">DISCORD</span>
+</a>
+<a class="flex flex-col items-center justify-center p-4 bg-surface-container-high hover:bg-surface-bright transition-all border-b-4 border-on-tertiary-container" href="#">
+<span class="material-symbols-outlined text-tertiary text-3xl mb-2" data-icon="grade" style="font-variation-settings: 'FILL' 1;">grade</span>
+<span class="font-headline text-[8px] text-on-surface">GITHUB</span>
+</a>
+<a class="flex flex-col items-center justify-center p-4 bg-surface-container-high hover:bg-surface-bright transition-all border-b-4 border-outline-variant" href="#">
+<span class="material-symbols-outlined text-on-surface-variant text-3xl mb-2" data-icon="bolt" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-headline text-[8px] text-on-surface">X.COM</span>
+</a>
+</div>
+</div>
+<!-- Health Bar Decorative -->
+<div class="space-y-2">
+<div class="flex justify-between text-[10px] font-headline uppercase text-outline">
+<span>Signal Strength</span>
+<span>99%</span>
+</div>
+<div class="flex gap-1">
+<div class="h-4 w-full bg-tertiary"></div>
+<div class="h-4 w-full bg-tertiary"></div>
+<div class="h-4 w-full bg-tertiary"></div>
+<div class="h-4 w-full bg-tertiary"></div>
+<div class="h-4 w-full bg-tertiary"></div>
+<div class="h-4 w-full bg-tertiary"></div>
+<div class="h-4 w-full bg-tertiary"></div>
+<div class="h-4 w-full bg-tertiary"></div>
+<div class="h-4 w-full bg-tertiary/20"></div>
+</div>
+</div>
+</div>
+<!-- Right Column: Contact Form -->
+<div class="lg:col-span-8">
+<div class="relative bg-surface-container-low border-2 border-primary/30 p-1">
+<div class="absolute -top-4 -right-4 bg-primary text-on-primary font-headline text-[10px] px-3 py-1 shadow-lg">
+                        NEW ENTRY
+                    </div>
+<form class="p-8 space-y-10">
+<!-- Input 01: NAME -->
+<div class="space-y-4">
+<label class="flex items-center gap-2 font-headline text-xs text-primary uppercase">
+<span class="material-symbols-outlined text-sm" data-icon="person">person</span>
+                                Player Name
+                            </label>
+<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-secondary focus:border-tertiary focus:ring-0 text-2xl font-headline text-secondary placeholder:text-surface-variant uppercase tracking-widest px-0 py-4 transition-all" placeholder="ENTER INITIALS..." type="text"/>
+</div>
+<!-- Input 02: EMAIL -->
+<div class="space-y-4">
+<label class="flex items-center gap-2 font-headline text-xs text-primary uppercase">
+<span class="material-symbols-outlined text-sm" data-icon="alternate_email">alternate_email</span>
+                                Communications Port
+                            </label>
+<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-secondary focus:border-tertiary focus:ring-0 text-xl font-body font-bold text-on-surface placeholder:text-surface-variant px-0 py-4 transition-all" placeholder="PLAYER@DOMAIN.COM" type="email"/>
+</div>
+<!-- Input 03: MESSAGE -->
+<div class="space-y-4">
+<label class="flex items-center gap-2 font-headline text-xs text-primary uppercase">
+<span class="material-symbols-outlined text-sm" data-icon="chat_bubble">chat_bubble</span>
+                                Broadcast Message
+                            </label>
+<textarea class="w-full bg-surface-container-lowest border-0 border-b-2 border-secondary focus:border-tertiary focus:ring-0 text-lg font-body text-on-surface placeholder:text-surface-variant px-0 py-4 transition-all resize-none" placeholder="TYPE YOUR MESSAGE HERE..." rows="4"></textarea>
+</div>
+<!-- Submit Button -->
+<div class="pt-6">
+<button class="w-full bg-primary text-on-primary font-headline text-lg py-6 pixel-border transition-all flex items-center justify-center gap-4 group" type="submit">
+<span class="group-hover:scale-110 transition-transform">TRANSMIT DATA</span>
+<span class="material-symbols-outlined group-hover:translate-x-2 transition-transform" data-icon="send">send</span>
+</button>
+</div>
+</form>
+<!-- Decorative Grid Background for Form -->
+<div class="absolute inset-0 pointer-events-none opacity-5 -z-10 bg-[radial-gradient(#df8eff_1px,transparent_1px)] [background-size:20px_20px]"></div>
+</div>
+<!-- Footer Stats Overlay -->
+<div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="bg-surface-container p-4 border-l-2 border-secondary">
+<p class="text-[8px] font-headline text-outline mb-1 uppercase">Latency</p>
+<p class="text-xl font-bold text-secondary">14MS</p>
+</div>
+<div class="bg-surface-container p-4 border-l-2 border-tertiary">
+<p class="text-[8px] font-headline text-outline mb-1 uppercase">Packets</p>
+<p class="text-xl font-bold text-tertiary">ENCRYPTED</p>
+</div>
+<div class="bg-surface-container p-4 border-l-2 border-primary">
+<p class="text-[8px] font-headline text-outline mb-1 uppercase">Protocol</p>
+<p class="text-xl font-bold text-primary">TCP/IP 95</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#000000] text-[#ff51fa] font-['Space_Grotesk'] tracking-widest text-[10px] uppercase docked full-width bottom-0 border-t-4 border-[#140727]">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-8 py-10 gap-4">
+<div class="text-lg font-bold text-[#ff51fa] crt-bloom">RETRO_VOID</div>
+<div class="text-center">© 199X RETRO_VOID - ALL COINS INSERTED</div>
+<div class="flex gap-6">
+<a class="text-[#4f4165] hover:text-[#df8eff] underline decoration-double transition-colors duration-150 cursor-pointer" href="#">CREDITS</a>
+<a class="text-[#4f4165] hover:text-[#df8eff] underline decoration-double transition-colors duration-150 cursor-pointer" href="#">HARDWARE</a>
+<a class="text-[#4f4165] hover:text-[#df8eff] underline decoration-double transition-colors duration-150 cursor-pointer" href="#">SUPPORT</a>
+</div>
+</div>
+</footer>
+</body></html>

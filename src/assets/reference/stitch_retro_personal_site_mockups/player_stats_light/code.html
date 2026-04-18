@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PLAYER_STATS | GAME_START</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e4e4cc",
+                        "surface-container": "#efefd7",
+                        "on-tertiary-fixed-variant": "#753401",
+                        "secondary-fixed-dim": "#e3beb8",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#735c00",
+                        "surface-dim": "#dbdcc3",
+                        "on-secondary-container": "#795c57",
+                        "on-tertiary-container": "#934b19",
+                        "primary-fixed-dim": "#ebc23e",
+                        "surface-tint": "#735c00",
+                        "secondary-container": "#fed7d0",
+                        "on-surface": "#1b1d0e",
+                        "primary": "#735c00",
+                        "on-secondary-fixed": "#2b1613",
+                        "surface-container-highest": "#e4e4cc",
+                        "outline-variant": "#d0c6ae",
+                        "tertiary-container": "#ffcfb5",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#303221",
+                        "surface-bright": "#fbfbe2",
+                        "background": "#fbfbe2",
+                        "on-secondary-fixed-variant": "#5b403c",
+                        "inverse-primary": "#ebc23e",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "secondary": "#745853",
+                        "on-tertiary-fixed": "#321200",
+                        "surface-container-low": "#f5f5dc",
+                        "on-primary-fixed": "#241a00",
+                        "secondary-fixed": "#ffdad4",
+                        "primary-fixed": "#ffe087",
+                        "surface-container-high": "#eaead1",
+                        "surface": "#fbfbe2",
+                        "tertiary-fixed-dim": "#ffb68c",
+                        "tertiary": "#934b19",
+                        "on-background": "#1b1d0e",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#ffd54f",
+                        "on-primary-fixed-variant": "#574500",
+                        "outline": "#7f7662",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#4d4634",
+                        "tertiary-fixed": "#ffdbc9",
+                        "inverse-on-surface": "#f2f2d9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Press Start 2P"],
+                        "body": ["Space Grotesk"],
+                        "label": ["Space Grotesk"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .dither-bg {
+            background-image: radial-gradient(#1b1d0e 0.5px, transparent 0.5px);
+            background-size: 3px 3px;
+            opacity: 0.05;
+        }
+        .scanlines {
+            background: linear-gradient(
+                to bottom,
+                rgba(18, 16, 16, 0) 50%,
+                rgba(0, 0, 0, 0.05) 50%
+            );
+            background-size: 100% 4px;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full border-b-4 border-on-surface bg-surface-bright z-50 shadow-[4px_4px_0px_0px_rgba(27,29,14,0.2)] flex justify-between items-center px-6 py-4">
+<div class="font-['Press_Start_2P'] text-xl uppercase text-on-surface tracking-tighter">GAME_START</div>
+<div class="hidden md:flex items-center gap-8 font-['Press_Start_2P'] uppercase tracking-widest text-[10px]">
+<a class="text-on-surface/60 hover:translate-x-[2px] hover:translate-y-[2px] transition-all" href="#">Quests</a>
+<a class="text-on-surface border-b-4 border-primary-container pb-1 hover:translate-x-[2px] hover:translate-y-[2px] transition-all" href="#">Stats</a>
+<a class="text-on-surface/60 hover:translate-x-[2px] hover:translate-y-[2px] transition-all" href="#">Save</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface hover:translate-x-[2px] hover:translate-y-[2px] transition-all" data-icon="account_circle">account_circle</button>
+</div>
+</nav>
+<main class="pt-24 pb-20 px-6 max-w-7xl mx-auto min-h-screen">
+<!-- Header Section -->
+<header class="mb-12">
+<h1 class="font-['Press_Start_2P'] text-3xl md:text-5xl uppercase mb-4 tracking-tighter text-on-surface">PLAYER_STATS</h1>
+<div class="h-2 w-32 bg-primary-container"></div>
+</header>
+<!-- Main Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Avatar & Profile Block -->
+<div class="md:col-span-4 flex flex-col gap-8">
+<div class="bg-surface-container-low p-2 relative shadow-[8px_8px_0px_0px_rgba(27,29,14,1)] border-4 border-on-surface">
+<img alt="Character Portrait" class="w-full aspect-square object-cover grayscale brightness-110 contrast-125" data-alt="Digital art portrait of a professional designer in a techwear outfit, minimalist low-poly aesthetic, warm vintage color palette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaWVJQ1hJemrL5KefS4BEJ-N5QKXO0ZMAeXm_zAexXh8zBFKBr_r2Sx3UzPIBhAVQzMpP3ecLsA-RabYiGO72fxLP59RtCMkwYXw12wGVfggw3kv0htNAY41nzJZpagJrtAzHhJDusxByXTO-7c3_3J430WlVQ2pG6WpnDZnPme4ev7pcwwcxdF1EsMLSTEZWOKpA198Mmovz2Qvp8678FPPgzPSZouzkggAg56ANCwRPKm9xUS_n7rEAyle2aKheY05BQG1QwAZlX"/>
+<div class="absolute bottom-4 right-4 bg-primary-container border-2 border-on-surface px-3 py-1 font-['Press_Start_2P'] text-[10px]">
+                        LVL. 99
+                    </div>
+</div>
+<div class="bg-on-surface text-surface-bright p-6 flex flex-col gap-4">
+<div class="flex justify-between items-center border-b border-surface-bright/20 pb-2">
+<span class="font-['Press_Start_2P'] text-[10px] opacity-60">NAME</span>
+<span class="font-bold tracking-tight">ARTHUR_DESIGNER</span>
+</div>
+<div class="flex justify-between items-center border-b border-surface-bright/20 pb-2">
+<span class="font-['Press_Start_2P'] text-[10px] opacity-60">CLASS</span>
+<span class="font-bold tracking-tight">SYSTEMS_ARCHITECT</span>
+</div>
+<div class="flex justify-between items-center border-b border-surface-bright/20 pb-2">
+<span class="font-['Press_Start_2P'] text-[10px] opacity-60">ORIGIN</span>
+<span class="font-bold tracking-tight">SILICON_VALLEY.DLL</span>
+</div>
+</div>
+</div>
+<!-- Stats & Biography -->
+<div class="md:col-span-8 flex flex-col gap-8">
+<!-- RPG Stats Section -->
+<div class="bg-surface-container-low border-t-8 border-primary p-8">
+<h2 class="font-['Press_Start_2P'] text-xs mb-8 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="leaderboard">leaderboard</span>
+                        ATTRIBUTE_SCORES
+                    </h2>
+<div class="flex flex-col gap-8">
+<!-- UX Design Stat -->
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<span class="font-['Press_Start_2P'] text-[10px]">UX_DESIGN</span>
+<span class="font-bold font-['Press_Start_2P'] text-[10px]">88/100</span>
+</div>
+<div class="h-6 w-full bg-surface-container-highest border-2 border-on-surface p-1 relative">
+<div class="h-full bg-primary-container w-[88%] relative overflow-hidden">
+<div class="absolute inset-0 dither-bg"></div>
+</div>
+</div>
+</div>
+<!-- Frontend Stat -->
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<span class="font-['Press_Start_2P'] text-[10px]">FRONTEND</span>
+<span class="font-bold font-['Press_Start_2P'] text-[10px]">94/100</span>
+</div>
+<div class="h-6 w-full bg-surface-container-highest border-2 border-on-surface p-1 relative">
+<div class="h-full bg-[#FF7043] w-[94%] relative overflow-hidden">
+<div class="absolute inset-0 dither-bg"></div>
+</div>
+</div>
+</div>
+<!-- UI Architecture Stat -->
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<span class="font-['Press_Start_2P'] text-[10px]">UI_ARCHITECTURE</span>
+<span class="font-bold font-['Press_Start_2P'] text-[10px]">82/100</span>
+</div>
+<div class="h-6 w-full bg-surface-container-highest border-2 border-on-surface p-1 relative">
+<div class="h-full bg-[#4DB6AC] w-[82%] relative overflow-hidden">
+<div class="absolute inset-0 dither-bg"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Biography Section -->
+<div class="bg-surface-bright border-4 border-on-surface p-8 shadow-[8px_8px_0px_0px_rgba(27,29,14,0.1)] relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 opacity-5">
+<span class="material-symbols-outlined text-[120px]" data-icon="terminal">terminal</span>
+</div>
+<h2 class="font-['Press_Start_2P'] text-xs mb-6 text-on-surface underline decoration-primary-container decoration-4 underline-offset-8">
+                        BIOGRAPHY.EXE
+                    </h2>
+<div class="space-y-4 text-on-surface-variant leading-relaxed text-sm md:text-base font-medium">
+<p>
+                            A digital artisan forged in the fires of late-90s web development. Specialized in creating scalable design systems that bridge the gap between human intuition and machine logic.
+                        </p>
+<p>
+                            Passionate about low-fi aesthetics, terminal-based workflows, and the preservation of tactile user experiences in an increasingly ephemeral digital landscape.
+                        </p>
+</div>
+<div class="mt-8 flex flex-wrap gap-4">
+<div class="bg-surface-container border-2 border-on-surface px-4 py-2 flex items-center gap-2 hover:bg-primary-container transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-sm group-hover:scale-110 transition-transform" data-icon="download">download</span>
+<span class="font-['Press_Start_2P'] text-[8px]">RESUME.PDF</span>
+</div>
+<div class="bg-surface-container border-2 border-on-surface px-4 py-2 flex items-center gap-2 hover:bg-primary-container transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-sm group-hover:scale-110 transition-transform" data-icon="mail">mail</span>
+<span class="font-['Press_Start_2P'] text-[8px]">CONTACT.MSG</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Inventory / Skills Grid -->
+<section class="mt-20">
+<h3 class="font-['Press_Start_2P'] text-sm mb-10 text-on-surface flex items-center gap-4">
+<span class="w-12 h-1 bg-on-surface"></span>
+                ACTIVE_SKILLS_INVENTORY
+            </h3>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+<div class="bg-surface-container-low p-6 border-2 border-on-surface flex flex-col items-center justify-center gap-4 hover:translate-x-[2px] hover:translate-y-[2px] transition-all cursor-crosshair group">
+<span class="material-symbols-outlined text-3xl group-hover:text-primary transition-colors" data-icon="palette">palette</span>
+<span class="font-['Press_Start_2P'] text-[8px] text-center">COLOR_THEORY</span>
+</div>
+<div class="bg-surface-container-low p-6 border-2 border-on-surface flex flex-col items-center justify-center gap-4 hover:translate-x-[2px] hover:translate-y-[2px] transition-all cursor-crosshair group">
+<span class="material-symbols-outlined text-3xl group-hover:text-primary transition-colors" data-icon="code">code</span>
+<span class="font-['Press_Start_2P'] text-[8px] text-center">REACT_V18</span>
+</div>
+<div class="bg-surface-container-low p-6 border-2 border-on-surface flex flex-col items-center justify-center gap-4 hover:translate-x-[2px] hover:translate-y-[2px] transition-all cursor-crosshair group">
+<span class="material-symbols-outlined text-3xl group-hover:text-primary transition-colors" data-icon="grid_view">grid_view</span>
+<span class="font-['Press_Start_2P'] text-[8px] text-center">BENTO_LAYOUT</span>
+</div>
+<div class="bg-surface-container-low p-6 border-2 border-on-surface flex flex-col items-center justify-center gap-4 hover:translate-x-[2px] hover:translate-y-[2px] transition-all cursor-crosshair group">
+<span class="material-symbols-outlined text-3xl group-hover:text-primary transition-colors" data-icon="speed">speed</span>
+<span class="font-['Press_Start_2P'] text-[8px] text-center">PERFORMANCE</span>
+</div>
+<div class="bg-surface-container-low p-6 border-2 border-on-surface flex flex-col items-center justify-center gap-4 hover:translate-x-[2px] hover:translate-y-[2px] transition-all cursor-crosshair group">
+<span class="material-symbols-outlined text-3xl group-hover:text-primary transition-colors" data-icon="psychology">psychology</span>
+<span class="font-['Press_Start_2P'] text-[8px] text-center">USER_RESEARCH</span>
+</div>
+<div class="bg-surface-container-low p-6 border-2 border-on-surface flex flex-col items-center justify-center gap-4 hover:translate-x-[2px] hover:translate-y-[2px] transition-all cursor-crosshair group">
+<span class="material-symbols-outlined text-3xl group-hover:text-primary transition-colors" data-icon="token">token</span>
+<span class="font-['Press_Start_2P'] text-[8px] text-center">DESIGN_TOKENS</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-20 border-t-8 border-primary bg-on-surface flex flex-col items-center gap-4 py-12 px-8">
+<div class="font-['Press_Start_2P'] text-lg text-primary-container">GAME_START</div>
+<div class="flex gap-6 font-['Space_Grotesk'] text-sm tracking-tighter text-surface-bright/80">
+<a class="hover:text-primary-container transition-colors" href="#">Credits</a>
+<a class="hover:text-primary-container transition-colors" href="#">Privacy</a>
+<a class="hover:text-primary-container transition-colors" href="#">Source</a>
+</div>
+<div class="font-['Space_Grotesk'] text-sm tracking-tighter text-surface-bright/60 mt-4">
+            © 199X RETRO_CORP - INSERT COIN TO CONTINUE
+        </div>
+</footer>
+<!-- CRT Overlay Layer -->
+<div class="fixed inset-0 scanlines opacity-30 pointer-events-none z-[100]"></div>
+</body></html>

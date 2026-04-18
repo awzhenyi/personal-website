@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GAME_START - Quest Log</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#ffffff",
+                    "surface-variant": "#e4e4cc",
+                    "surface-container": "#efefd7",
+                    "on-tertiary-fixed-variant": "#753401",
+                    "secondary-fixed-dim": "#e3beb8",
+                    "error": "#ba1a1a",
+                    "on-primary-container": "#735c00",
+                    "surface-dim": "#dbdcc3",
+                    "on-secondary-container": "#795c57",
+                    "on-tertiary-container": "#934b19",
+                    "primary-fixed-dim": "#ebc23e",
+                    "surface-tint": "#735c00",
+                    "secondary-container": "#fed7d0",
+                    "on-surface": "#1b1d0e",
+                    "primary": "#735c00",
+                    "on-secondary-fixed": "#2b1613",
+                    "surface-container-highest": "#e4e4cc",
+                    "outline-variant": "#d0c6ae",
+                    "tertiary-container": "#ffcfb5",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#303221",
+                    "surface-bright": "#fbfbe2",
+                    "background": "#fbfbe2",
+                    "on-secondary-fixed-variant": "#5b403c",
+                    "inverse-primary": "#ebc23e",
+                    "on-primary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "secondary": "#745853",
+                    "on-tertiary-fixed": "#321200",
+                    "surface-container-low": "#f5f5dc",
+                    "on-primary-fixed": "#241a00",
+                    "secondary-fixed": "#ffdad4",
+                    "primary-fixed": "#ffe087",
+                    "surface-container-high": "#eaead1",
+                    "surface": "#fbfbe2",
+                    "tertiary-fixed-dim": "#ffb68c",
+                    "tertiary": "#934b19",
+                    "on-background": "#1b1d0e",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "primary-container": "#ffd54f",
+                    "on-primary-fixed-variant": "#574500",
+                    "outline": "#7f7662",
+                    "error-container": "#ffdad6",
+                    "on-surface-variant": "#4d4634",
+                    "tertiary-fixed": "#ffdbc9",
+                    "inverse-on-surface": "#f2f2d9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Press Start 2P"],
+                    "body": ["Space Grotesk"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pixel-dither {
+            background-image: radial-gradient(#1b1d0e 0.5px, transparent 0.5px);
+            background-size: 4px 4px;
+            opacity: 0.05;
+        }
+        .hard-shadow {
+            box-shadow: 4px 4px 0px 0px rgba(27, 29, 14, 0.2);
+        }
+        .active-push:active {
+            transform: translate(2px, 2px);
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-[#FBFBE2] dark:bg-[#FBFBE2] fixed top-0 w-full border-b-4 border-[#1B1D0E] shadow-[4px_4px_0px_0px_rgba(27,29,14,0.2)] z-50">
+<div class="flex justify-between items-center px-6 py-4 w-full">
+<div class="font-['Press_Start_2P'] text-xl uppercase text-[#1B1D0E]">GAME_START</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="font-['Press_Start_2P'] uppercase tracking-widest text-xs text-[#1B1D0E] border-b-4 border-[#FFD54F] pb-1 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all" href="#">Quests</a>
+<a class="font-['Press_Start_2P'] uppercase tracking-widest text-xs text-[#1B1D0E]/60 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all" href="#">Stats</a>
+<a class="font-['Press_Start_2P'] uppercase tracking-widest text-xs text-[#1B1D0E]/60 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all" href="#">Save</a>
+</nav>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#1B1D0E] text-2xl" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</header>
+<main class="flex-grow pt-32 pb-20 px-6 max-w-7xl mx-auto w-full">
+<!-- Hero Section -->
+<div class="mb-16 relative">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<span class="font-headline text-xs text-primary mb-4 block tracking-tighter">SELECT YOUR MISSION</span>
+<h1 class="font-headline text-4xl md:text-5xl uppercase leading-tight tracking-tighter max-w-2xl">Quest Log: Portfolio_v.9x</h1>
+</div>
+<div class="bg-surface-container-low p-6 hard-shadow border-2 border-on-surface">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-primary" data-icon="military_tech" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+<span class="font-headline text-[10px] uppercase">Player Level: 24</span>
+</div>
+<div class="w-48 h-4 bg-surface-variant border border-on-surface overflow-hidden">
+<div class="h-full bg-primary-container w-[72%]"></div>
+</div>
+</div>
+</div>
+<!-- Dither Overlay Background Decor -->
+<div class="absolute -z-10 top-0 right-0 w-64 h-64 pixel-dither pointer-events-none"></div>
+</div>
+<!-- Quest Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+<!-- Project Card 1 -->
+<div class="group relative bg-surface border-4 border-on-surface flex flex-col hard-shadow hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all">
+<div class="aspect-video w-full overflow-hidden border-b-4 border-on-surface relative">
+<img alt="Abstract digital geometry" class="w-full h-full object-cover" data-alt="Abstract colorful low-poly 3D geometric shapes with soft shadows and vintage computer graphics aesthetic on warm beige background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8HI9BtJxnHJQWIcPICKXMkYwt1NdPChl9385RB5Wbl_pP1vXXwKkxNptEax7ffIyL-gSt--3yx4MTendtkNmwqgUwbgZodSrGercac7UHX2RmeSbOAtizO02hHOIOa4w1U_1Htdy8aJjDB8qf_xK0ygAXAKKflnX7c5yOaENM0AY1ceOppzgdaFvG3g42j5ihwtjorJyhenKVJyA6UZB2MgunA6XOrlMx1T7YMioR6bUnfgSJ_fd6lmKyJ95fzCOgiRb-ELPpP54n"/>
+<div class="absolute top-4 left-4 bg-primary-container text-on-primary-container px-3 py-1 font-headline text-[8px] uppercase border-2 border-on-surface">Main Story</div>
+</div>
+<div class="p-8 flex-grow flex flex-col">
+<h3 class="font-headline text-lg mb-4 leading-relaxed">Neural_Nexus.EXE</h3>
+<p class="text-on-surface-variant text-sm mb-6 flex-grow leading-relaxed">
+                        An experimental AI interface design exploring the boundaries between human intuition and machine learning logic.
+                    </p>
+<div class="mb-6">
+<div class="flex justify-between items-center mb-2">
+<span class="font-headline text-[10px] uppercase text-on-surface/60">Difficulty</span>
+<div class="flex gap-1">
+<div class="w-3 h-3 bg-primary border border-on-surface"></div>
+<div class="w-3 h-3 bg-primary border border-on-surface"></div>
+<div class="w-3 h-3 bg-primary border border-on-surface"></div>
+<div class="w-3 h-3 bg-surface-variant border border-on-surface"></div>
+<div class="w-3 h-3 bg-surface-variant border border-on-surface"></div>
+</div>
+</div>
+</div>
+<button class="w-full bg-primary-container border-2 border-on-surface py-3 px-4 font-headline text-[10px] uppercase flex items-center justify-center gap-3 active-push hard-shadow">
+                        Start Quest
+                        <span class="material-symbols-outlined text-lg" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+</div>
+<!-- Project Card 2 -->
+<div class="group relative bg-surface border-4 border-on-surface flex flex-col hard-shadow hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all">
+<div class="aspect-video w-full overflow-hidden border-b-4 border-on-surface relative">
+<img alt="Retro hardware photography" class="w-full h-full object-cover" data-alt="Close-up of a vintage 1980s computer motherboard with visible circuits and capacitors in warm soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0ApdxYhT5Tc6KeKV6NYKOmuzY1Qnlu1Yh7PNcmKS2bibSBYJOMCqVZh6fGzwDuw_SHjmZbYM2rivYw8W2FtufH9ChIqaN2i7zOxAydMyC6XHzrNxfLrSMpDz9jzG9yWty5RmRdxyFzm8TDr5ctweaJAkw6LVmhKZXtTXu0--ZmRgKa9I6onyswLVa53-34vtwSAEI6YDGkZv3l4HPZXGco01GOk5uP3L1hLqqttARrJb4C-4Q1stPosJg8AzAWquSqxD0po0Go5wp"/>
+<div class="absolute top-4 left-4 bg-tertiary-container text-on-tertiary-container px-3 py-1 font-headline text-[8px] uppercase border-2 border-on-surface">Side Mission</div>
+</div>
+<div class="p-8 flex-grow flex flex-col">
+<h3 class="font-headline text-lg mb-4 leading-relaxed">System_Core_UI</h3>
+<p class="text-on-surface-variant text-sm mb-6 flex-grow leading-relaxed">
+                        A full redesign of the kernel management console for decentralized cloud computing infrastructures.
+                    </p>
+<div class="mb-6">
+<div class="flex justify-between items-center mb-2">
+<span class="font-headline text-[10px] uppercase text-on-surface/60">Difficulty</span>
+<div class="flex gap-1">
+<div class="w-3 h-3 bg-primary border border-on-surface"></div>
+<div class="w-3 h-3 bg-primary border border-on-surface"></div>
+<div class="w-3 h-3 bg-primary border border-on-surface"></div>
+<div class="w-3 h-3 bg-primary border border-on-surface"></div>
+<div class="w-3 h-3 bg-primary border border-on-surface"></div>
+</div>
+</div>
+</div>
+<button class="w-full bg-primary-container border-2 border-on-surface py-3 px-4 font-headline text-[10px] uppercase flex items-center justify-center gap-3 active-push hard-shadow">
+                        Start Quest
+                        <span class="material-symbols-outlined text-lg" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+</div>
+<!-- Project Card 3 -->
+<div class="group relative bg-surface border-4 border-on-surface flex flex-col hard-shadow hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all">
+<div class="aspect-video w-full overflow-hidden border-b-4 border-on-surface relative">
+<img alt="Digital grid landscape" class="w-full h-full object-cover" data-alt="Vaporwave style digital landscape with wireframe mountains and a glowing sun on the horizon with 1980s neon color palette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-hNzyaZG8uEmGGuiE-iSaE6XY9nkz69iAyFP4MDua2WgeoP2z9E_f3o9lW7XCvgaXFbh-H3_sN-DFdgNgt2kPRAqzDq4kG222yySqdPn1xowh4r7Zz-AbnujyAOG7DNBLvFQpVt9y3_G70dXt__DiCqZMJl1YL4bW_LPrutxAQ2ammKm_Eet-mrRcgk9PsZhN6Iq35yTHAKjxL3NjCoUnzf4-e48rC0H7Me65WP0ii4mnd1z7SfKmCnIqx87a8hf7JFh8IiwGYFKX"/>
+<div class="absolute top-4 left-4 bg-primary-container text-on-primary-container px-3 py-1 font-headline text-[8px] uppercase border-2 border-on-surface">Tutorial</div>
+</div>
+<div class="p-8 flex-grow flex flex-col">
+<h3 class="font-headline text-lg mb-4 leading-relaxed">Arcade_OS_Lite</h3>
+<p class="text-on-surface-variant text-sm mb-6 flex-grow leading-relaxed">
+                        A lightweight operating system skin designed for modern handheld emulation devices.
+                    </p>
+<div class="mb-6">
+<div class="flex justify-between items-center mb-2">
+<span class="font-headline text-[10px] uppercase text-on-surface/60">Difficulty</span>
+<div class="flex gap-1">
+<div class="w-3 h-3 bg-primary border border-on-surface"></div>
+<div class="w-3 h-3 bg-surface-variant border border-on-surface"></div>
+<div class="w-3 h-3 bg-surface-variant border border-on-surface"></div>
+<div class="w-3 h-3 bg-surface-variant border border-on-surface"></div>
+<div class="w-3 h-3 bg-surface-variant border border-on-surface"></div>
+</div>
+</div>
+</div>
+<button class="w-full bg-primary-container border-2 border-on-surface py-3 px-4 font-headline text-[10px] uppercase flex items-center justify-center gap-3 active-push hard-shadow">
+                        Start Quest
+                        <span class="material-symbols-outlined text-lg" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Achievement Section (Asymmetric Bento) -->
+<div class="mt-24 grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="md:col-span-2 bg-surface-container-low p-10 border-4 border-on-surface hard-shadow flex flex-col md:flex-row gap-10 items-center">
+<div class="flex-shrink-0 w-32 h-32 bg-primary-container border-4 border-on-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-6xl text-on-primary-container" data-icon="trophy" style="font-variation-settings: 'FILL' 1;">trophy</span>
+</div>
+<div>
+<h2 class="font-headline text-2xl uppercase mb-4 tracking-tighter">Achievement Unlocked: Master Designer</h2>
+<p class="text-on-surface-variant mb-6">You have completed over 50 missions in the Creative Sector. Your UI intuition skill has increased by +15.</p>
+<div class="flex gap-3">
+<span class="px-4 py-2 border-2 border-on-surface bg-surface text-[10px] font-headline uppercase">View Badge</span>
+<span class="px-4 py-2 border-2 border-on-surface bg-surface text-[10px] font-headline uppercase">Share Score</span>
+</div>
+</div>
+</div>
+<div class="bg-primary p-8 border-4 border-on-surface hard-shadow flex flex-col justify-between">
+<span class="font-headline text-surface text-[10px] uppercase">Secret Level</span>
+<div class="py-8">
+<h3 class="font-headline text-xl text-primary-container leading-normal">LOCKED_DATA.BIN</h3>
+</div>
+<div class="flex items-center gap-2 text-surface">
+<span class="material-symbols-outlined text-xl" data-icon="lock">lock</span>
+<span class="font-body text-xs uppercase tracking-widest font-bold">Requires Lv. 30</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#1B1D0E] dark:bg-[#1B1D0E] w-full mt-20 border-t-8 border-[#735C00]">
+<div class="flex flex-col items-center gap-4 py-12 px-8 w-full">
+<div class="font-['Press_Start_2P'] text-lg text-[#FFD54F]">GAME_START</div>
+<div class="flex gap-8 my-4">
+<a class="font-['Space_Grotesk'] text-sm tracking-tighter text-[#FBFBE2]/80 hover:text-[#FFD54F] transition-colors" href="#">Credits</a>
+<a class="font-['Space_Grotesk'] text-sm tracking-tighter text-[#FBFBE2]/80 hover:text-[#FFD54F] transition-colors" href="#">Privacy</a>
+<a class="font-['Space_Grotesk'] text-sm tracking-tighter text-[#FBFBE2]/80 hover:text-[#FFD54F] transition-colors" href="#">Source</a>
+</div>
+<p class="font-['Space_Grotesk'] text-sm tracking-tighter text-[#FBFBE2] opacity-60">© 199X RETRO_CORP - INSERT COIN TO CONTINUE</p>
+</div>
+</footer>
+<!-- CRT Overlay Layer (Visual Interest Only) -->
+<div class="fixed inset-0 pointer-events-none opacity-[0.03] z-[100] overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-on-surface/10 to-transparent h-2 w-full animate-pulse" style="animation: scanline 8s linear infinite;"></div>
+</div>
+<style>
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(1000%); }
+        }
+    </style>
+</body></html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PLAYER STATS - LEVEL_01</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;family=Space+Grotesk:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#230023",
+                        "on-tertiary-fixed-variant": "#6a006a",
+                        "surface-container-high": "#271641",
+                        "surface-container-low": "#190b30",
+                        "on-secondary": "#005c5c",
+                        "primary-fixed-dim": "#cf62ff",
+                        "on-error-container": "#ffb2b9",
+                        "on-primary-container": "#3d0055",
+                        "surface-container-highest": "#2e1c4b",
+                        "secondary-container": "#006a6a",
+                        "on-secondary-container": "#d9fffe",
+                        "on-primary-fixed": "#000000",
+                        "on-tertiary-fixed": "#320032",
+                        "error": "#ff6e84",
+                        "on-primary-fixed-variant": "#4b0069",
+                        "secondary-fixed": "#00fbfb",
+                        "surface-container-lowest": "#000000",
+                        "tertiary-dim": "#ff51fa",
+                        "on-tertiary": "#400040",
+                        "on-secondary-fixed": "#004747",
+                        "secondary-fixed-dim": "#00ecec",
+                        "secondary": "#00fbfb",
+                        "tertiary": "#ff51fa",
+                        "surface-tint": "#df8eff",
+                        "on-surface": "#eee0ff",
+                        "primary-container": "#d779ff",
+                        "surface-variant": "#2e1c4b",
+                        "surface-bright": "#352254",
+                        "on-primary": "#4f006d",
+                        "inverse-surface": "#fef7ff",
+                        "primary-fixed": "#d779ff",
+                        "secondary-dim": "#00ecec",
+                        "on-error": "#490013",
+                        "on-surface-variant": "#b5a4cd",
+                        "background": "#140727",
+                        "on-background": "#eee0ff",
+                        "outline": "#7e6f95",
+                        "inverse-on-surface": "#5d4e73",
+                        "primary-dim": "#bb00fd",
+                        "primary": "#df8eff",
+                        "tertiary-fixed-dim": "#ff61f8",
+                        "surface-dim": "#140727",
+                        "surface-container": "#201139",
+                        "surface": "#140727",
+                        "tertiary-container": "#fe00fe",
+                        "outline-variant": "#4f4165",
+                        "error-dim": "#d73357",
+                        "on-secondary-fixed-variant": "#006666",
+                        "tertiary-fixed": "#ff81f5",
+                        "inverse-primary": "#9900d1",
+                        "error-container": "#a70138"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Press Start 2P"],
+                        "body": ["Space Grotesk"],
+                        "label": ["Space Grotesk"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .scanlines {
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+        }
+        .crt-bloom {
+            text-shadow: 0 0 8px rgba(223, 142, 255, 0.8);
+        }
+        .hard-shadow {
+            box-shadow: 4px 4px 0px #3d0055;
+        }
+        .health-block {
+            width: 10%;
+            height: 100%;
+            border-right: 2px solid #140727;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body min-h-screen flex flex-col selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar -->
+<nav class="bg-[#140727] border-b-4 border-[#352254] shadow-[0_0_15px_rgba(223,142,255,0.3)] sticky top-0 z-50 flex justify-between items-center w-full px-6 py-4 h-16">
+<div class="text-xl font-black text-[#00fbfb] drop-shadow-[0_0_5px_#00fbfb] font-['Press_Start_2P'] uppercase text-xs tracking-tighter">
+            LEVEL_01
+        </div>
+<div class="hidden md:flex gap-8">
+<a class="text-[#eee0ff] opacity-80 font-['Press_Start_2P'] uppercase text-xs tracking-tighter hover:bg-[#352254] hover:text-[#00fbfb] transition-all px-2 py-1" href="#">QUESTS</a>
+<a class="text-[#eee0ff] opacity-80 font-['Press_Start_2P'] uppercase text-xs tracking-tighter hover:bg-[#352254] hover:text-[#00fbfb] transition-all px-2 py-1" href="#">EQUIP</a>
+<a class="text-[#df8eff] border-b-2 border-[#df8eff] pb-1 font-['Press_Start_2P'] uppercase text-xs tracking-tighter" href="#">SAVE</a>
+<a class="text-[#eee0ff] opacity-80 font-['Press_Start_2P'] uppercase text-xs tracking-tighter hover:bg-[#352254] hover:text-[#00fbfb] transition-all px-2 py-1" href="#">EXIT</a>
+</div>
+<div class="font-['Press_Start_2P'] text-xs text-[#df8eff] tracking-tighter bg-surface-container-high px-3 py-1 border-2 border-primary">
+            HI-SCORE: 9999
+        </div>
+</nav>
+<!-- CRT Overlay -->
+<div class="fixed inset-0 scanlines opacity-20 z-40 pointer-events-none"></div>
+<main class="flex-grow container mx-auto px-4 py-12 relative z-10">
+<!-- Page Title -->
+<header class="mb-12 text-center">
+<h1 class="font-headline text-4xl md:text-6xl text-primary crt-bloom mb-4 tracking-tighter">PLAYER STATS</h1>
+<div class="flex items-center justify-center gap-4">
+<span class="h-1 w-24 bg-secondary"></span>
+<span class="font-headline text-xs text-secondary-fixed">MISSION: PROFILE_SUMMARY</span>
+<span class="h-1 w-24 bg-secondary"></span>
+</div>
+</header>
+<!-- RPG Layout Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Sidebar: Avatar & Vital Stats -->
+<div class="lg:col-span-4 space-y-6">
+<!-- Avatar Card -->
+<div class="bg-surface-container-high hard-shadow p-2 border-2 border-outline-variant relative">
+<div class="absolute -top-4 -left-4 bg-tertiary px-2 py-1 font-headline text-[10px] text-on-tertiary">
+                        LVL 32
+                    </div>
+<img class="w-full aspect-square object-cover grayscale brightness-125 contrast-150 border-4 border-surface-container-lowest" data-alt="A pixel art character portrait of a professional developer with neon magenta highlights on black hair and glowing cyan eyes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR8atrfodPkge1brt0o-xat4fhl7G7eX9BrswGvVmN4Vxwy8K_owFilJeA2LNauyc1RVHGnT156xe9tixUp81G9xjoyL5YZW7PY0qzo_QKJzgWLn7gFDWkQM8rMcjauQ-C0rY4j_e9JyqGo2KL98-dOVzdXCh-918Pp0P5YwNis0SbiKD8k5pOL8D7c1oBqV7SOYPhHlg8dGKPnVzjEBKeC2sOx-3NLkhmzl1dj_OvkqJN7GET7UABWYJFZv3GjnIWjic6pksIAiL4"/>
+<div class="mt-4 p-4 bg-surface-container-lowest">
+<h2 class="font-headline text-lg text-secondary mb-2">NEO_USER</h2>
+<p class="font-headline text-[10px] text-on-surface-variant uppercase tracking-widest">CLASS: ARCHITECT / FULL-STACK</p>
+</div>
+</div>
+<!-- Status Bars -->
+<div class="bg-surface-container-low p-6 space-y-4">
+<div>
+<div class="flex justify-between font-headline text-[10px] mb-2">
+<span class="text-error">HP [HEALTH]</span>
+<span class="text-on-surface">100/100</span>
+</div>
+<div class="h-6 bg-surface-container-lowest border border-outline-variant flex">
+<div class="health-block bg-error"></div><div class="health-block bg-error"></div><div class="health-block bg-error"></div><div class="health-block bg-error"></div><div class="health-block bg-error"></div>
+<div class="health-block bg-error"></div><div class="health-block bg-error"></div><div class="health-block bg-error"></div><div class="health-block bg-error"></div><div class="health-block bg-error"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-headline text-[10px] mb-2">
+<span class="text-secondary">MP [COFFEE]</span>
+<span class="text-on-surface">85/100</span>
+</div>
+<div class="h-6 bg-surface-container-lowest border border-outline-variant flex">
+<div class="health-block bg-secondary"></div><div class="health-block bg-secondary"></div><div class="health-block bg-secondary"></div><div class="health-block bg-secondary"></div><div class="health-block bg-secondary"></div>
+<div class="health-block bg-secondary"></div><div class="health-block bg-secondary"></div><div class="health-block bg-secondary"></div><div class="health-block bg-surface-container-lowest"></div><div class="health-block bg-surface-container-lowest"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-headline text-[10px] mb-2">
+<span class="text-tertiary">XP [EXP]</span>
+<span class="text-on-surface">75%</span>
+</div>
+<div class="h-6 bg-surface-container-lowest border border-outline-variant flex">
+<div class="health-block bg-tertiary"></div><div class="health-block bg-tertiary"></div><div class="health-block bg-tertiary"></div><div class="health-block bg-tertiary"></div><div class="health-block bg-tertiary"></div>
+<div class="health-block bg-tertiary"></div><div class="health-block bg-tertiary"></div><div class="health-block bg-surface-container-lowest"></div><div class="health-block bg-surface-container-lowest"></div><div class="health-block bg-surface-container-lowest"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Content: Attributes & Bio -->
+<div class="lg:col-span-8 space-y-8">
+<!-- Attributes (Skills) Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-surface-bright p-6 border-l-4 border-primary hover:bg-surface-container-highest transition-colors cursor-default">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<h3 class="font-headline text-sm text-primary">STR [CODE]</h3>
+</div>
+<p class="text-xs text-on-surface-variant font-label uppercase mb-2">Mastery of Typescript, Python, &amp; Rust</p>
+<div class="text-2xl font-headline text-on-surface">99</div>
+</div>
+<div class="bg-surface-bright p-6 border-l-4 border-secondary hover:bg-surface-container-highest transition-colors cursor-default">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">palette</span>
+<h3 class="font-headline text-sm text-secondary">DEX [UI/UX]</h3>
+</div>
+<p class="text-xs text-on-surface-variant font-label uppercase mb-2">Fluid Animation &amp; Layout Logic</p>
+<div class="text-2xl font-headline text-on-surface">84</div>
+</div>
+<div class="bg-surface-bright p-6 border-l-4 border-tertiary hover:bg-surface-container-highest transition-colors cursor-default">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<h3 class="font-headline text-sm text-tertiary">INT [ARCH]</h3>
+</div>
+<p class="text-xs text-on-surface-variant font-label uppercase mb-2">Cloud Infrastructure &amp; Systems</p>
+<div class="text-2xl font-headline text-on-surface">92</div>
+</div>
+<div class="bg-surface-bright p-6 border-l-4 border-error hover:bg-surface-container-highest transition-colors cursor-default">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">groups</span>
+<h3 class="font-headline text-sm text-error">CHA [TEAM]</h3>
+</div>
+<p class="text-xs text-on-surface-variant font-label uppercase mb-2">Mentorship &amp; Project Lead</p>
+<div class="text-2xl font-headline text-on-surface">88</div>
+</div>
+</div>
+<!-- Biography Section (Dialogue Box) -->
+<div class="bg-surface-container-lowest border-4 border-on-surface-variant p-1">
+<div class="border-2 border-outline-variant p-8 relative">
+<div class="absolute -top-4 left-8 bg-surface-container-lowest px-4 font-headline text-xs text-secondary-fixed">
+                            BIOGRAPHY.EXE
+                        </div>
+<div class="space-y-6">
+<p class="font-body text-xl leading-relaxed text-on-surface">
+                                "Born in the era of 56k modems and CRT flickers, I began my journey by manipulating HTML strings in the void of GeoCities."
+                            </p>
+<p class="font-body text-xl leading-relaxed text-on-surface">
+                                "Now, with over <span class="text-primary font-bold">10 Years of Professional Experience Points</span>, I traverse the digital landscape building robust architectural foundations and immersive visual experiences."
+                            </p>
+<p class="font-body text-xl leading-relaxed text-on-surface">
+                                "Current Quest: Merging high-performance engineering with retro-futuristic aesthetics to redefine the modern web interface."
+                            </p>
+<div class="flex items-center gap-2 pt-4">
+<div class="w-4 h-4 bg-primary animate-pulse"></div>
+<span class="font-headline text-[10px] text-primary opacity-60">PRESS ANY KEY TO CONTINUE...</span>
+</div>
+</div>
+<span class="material-symbols-outlined absolute bottom-4 right-4 text-tertiary animate-bounce" data-icon="arrow_drop_down">arrow_drop_down</span>
+</div>
+</div>
+<!-- Experience Timeline (Inventory) -->
+<div class="space-y-4">
+<h3 class="font-headline text-sm text-on-surface mb-6 flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">inventory_2</span>
+                        CARRIER_HISTORY
+                    </h3>
+<div class="bg-surface-container-high p-4 flex gap-6 items-center border border-outline-variant hover:border-primary group">
+<div class="w-16 h-16 bg-surface-container-lowest flex items-center justify-center border-2 border-outline-variant group-hover:border-primary">
+<span class="material-symbols-outlined text-primary text-3xl">token</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-headline text-[12px] text-secondary">SENIOR SYSTEMS ARCHITECT</h4>
+<span class="font-headline text-[10px] text-on-surface-variant">2021 - PRESENT</span>
+</div>
+<p class="text-xs font-label uppercase text-on-surface-variant">CYBER_VOID SYSTEMS // REMOTE_HQ</p>
+</div>
+</div>
+<div class="bg-surface-container-high p-4 flex gap-6 items-center border border-outline-variant hover:border-secondary group">
+<div class="w-16 h-16 bg-surface-container-lowest flex items-center justify-center border-2 border-outline-variant group-hover:border-secondary">
+<span class="material-symbols-outlined text-secondary text-3xl">data_object</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-headline text-[12px] text-secondary">FULL STACK DEVELOPER</h4>
+<span class="font-headline text-[10px] text-on-surface-variant">2018 - 2021</span>
+</div>
+<p class="text-xs font-label uppercase text-on-surface-variant">PIXEL_PERFECT STUDIOS // NEON_CITY</p>
+</div>
+</div>
+<div class="bg-surface-container-high p-4 flex gap-6 items-center border border-outline-variant hover:border-tertiary group">
+<div class="w-16 h-16 bg-surface-container-lowest flex items-center justify-center border-2 border-outline-variant group-hover:border-tertiary">
+<span class="material-symbols-outlined text-tertiary text-3xl">terminal</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-headline text-[12px] text-secondary">JUNIOR INTERFACE ENGINEER</h4>
+<span class="font-headline text-[10px] text-on-surface-variant">2015 - 2018</span>
+</div>
+<p class="text-xs font-label uppercase text-on-surface-variant">LEGACY_WEB CORP // THE_GRID</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#000000] border-t-4 border-[#140727] flex flex-col md:flex-row justify-between items-center w-full px-8 py-10 gap-4 mt-12">
+<div class="text-lg font-bold text-[#ff51fa] font-['Space_Grotesk'] tracking-widest text-[10px] uppercase">
+            © 199X RETRO_VOID - ALL COINS INSERTED
+        </div>
+<div class="flex gap-8">
+<a class="text-[#4f4165] font-['Space_Grotesk'] tracking-widest text-[10px] uppercase hover:text-[#df8eff] underline decoration-double transition-colors duration-150" href="#">CREDITS</a>
+<a class="text-[#4f4165] font-['Space_Grotesk'] tracking-widest text-[10px] uppercase hover:text-[#df8eff] underline decoration-double transition-colors duration-150" href="#">HARDWARE</a>
+<a class="text-[#4f4165] font-['Space_Grotesk'] tracking-widest text-[10px] uppercase hover:text-[#df8eff] underline decoration-double transition-colors duration-150" href="#">SUPPORT</a>
+</div>
+<div class="text-[#00fbfb] font-bold font-['Space_Grotesk'] tracking-widest text-[10px] uppercase">
+            PING: 14MS // FPS: 60
+        </div>
+</footer>
+</body></html>

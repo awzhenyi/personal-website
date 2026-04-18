@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LEVEL_01 - The Journey Begins</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;family=Space+Grotesk:wght@300;400;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-tertiary-container": "#230023",
+                "on-tertiary-fixed-variant": "#6a006a",
+                "surface-container-high": "#271641",
+                "surface-container-low": "#190b30",
+                "on-secondary": "#005c5c",
+                "primary-fixed-dim": "#cf62ff",
+                "on-error-container": "#ffb2b9",
+                "on-primary-container": "#3d0055",
+                "surface-container-highest": "#2e1c4b",
+                "secondary-container": "#006a6a",
+                "on-secondary-container": "#d9fffe",
+                "on-primary-fixed": "#000000",
+                "on-tertiary-fixed": "#320032",
+                "error": "#ff6e84",
+                "on-primary-fixed-variant": "#4b0069",
+                "secondary-fixed": "#00fbfb",
+                "surface-container-lowest": "#000000",
+                "tertiary-dim": "#ff51fa",
+                "on-tertiary": "#400040",
+                "on-secondary-fixed": "#004747",
+                "secondary-fixed-dim": "#00ecec",
+                "secondary": "#00fbfb",
+                "tertiary": "#ff51fa",
+                "surface-tint": "#df8eff",
+                "on-surface": "#eee0ff",
+                "primary-container": "#d779ff",
+                "surface-variant": "#2e1c4b",
+                "surface-bright": "#352254",
+                "on-primary": "#4f006d",
+                "inverse-surface": "#fef7ff",
+                "primary-fixed": "#d779ff",
+                "secondary-dim": "#00ecec",
+                "on-error": "#490013",
+                "on-surface-variant": "#b5a4cd",
+                "background": "#140727",
+                "on-background": "#eee0ff",
+                "outline": "#7e6f95",
+                "inverse-on-surface": "#5d4e73",
+                "primary-dim": "#bb00fd",
+                "primary": "#df8eff",
+                "tertiary-fixed-dim": "#ff61f8",
+                "surface-dim": "#140727",
+                "surface-container": "#201139",
+                "surface": "#140727",
+                "tertiary-container": "#fe00fe",
+                "outline-variant": "#4f4165",
+                "error-dim": "#d73357",
+                "on-secondary-fixed-variant": "#006666",
+                "tertiary-fixed": "#ff81f5",
+                "inverse-primary": "#9900d1",
+                "error-container": "#a70138"
+            },
+            "borderRadius": {
+                "DEFAULT": "0px",
+                "lg": "0px",
+                "xl": "0px",
+                "full": "9999px"
+            },
+            "fontFamily": {
+                "headline": ["Space Grotesk"],
+                "body": ["Space Grotesk"],
+                "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .scanlines {
+            background: linear-gradient(
+                rgba(18, 16, 16, 0) 50%,
+                rgba(0, 0, 0, 0.25) 50%
+            ), linear-gradient(
+                90deg,
+                rgba(255, 0, 0, 0.06),
+                rgba(0, 255, 0, 0.02),
+                rgba(0, 0, 255, 0.06)
+            );
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+        }
+        .pixel-border {
+            box-shadow: 0 4px 0 0 #3d0055, 0 -4px 0 0 #3d0055, 4px 0 0 0 #3d0055, -4px 0 0 0 #3d0055;
+        }
+        .arcade-button-shadow {
+            box-shadow: 4px 4px 0 0 #3d0055;
+        }
+        .arcade-button-active:active {
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0 0 #3d0055;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary selection:text-on-primary overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#140727] text-[#df8eff] border-b-4 border-[#352254] shadow-[0_0_15px_rgba(223,142,255,0.3)] flex justify-between items-center px-6 py-4 h-16">
+<div class="font-['Press_Start_2P'] uppercase text-xl font-black text-[#00fbfb] drop-shadow-[0_0_5px_#00fbfb]">LEVEL_01</div>
+<div class="hidden md:flex gap-8 font-['Press_Start_2P'] uppercase text-xs tracking-tighter">
+<a class="text-[#df8eff] border-b-2 border-[#df8eff] pb-1 hover:bg-[#352254] hover:text-[#00fbfb] transition-all active:translate-y-0.5 active:translate-x-0.5" href="#">QUESTS</a>
+<a class="text-[#eee0ff] opacity-80 hover:bg-[#352254] hover:text-[#00fbfb] transition-all active:translate-y-0.5 active:translate-x-0.5" href="#">EQUIP</a>
+<a class="text-[#eee0ff] opacity-80 hover:bg-[#352254] hover:text-[#00fbfb] transition-all active:translate-y-0.5 active:translate-x-0.5" href="#">SAVE</a>
+<a class="text-[#eee0ff] opacity-80 hover:bg-[#352254] hover:text-[#00fbfb] transition-all active:translate-y-0.5 active:translate-x-0.5" href="#">EXIT</a>
+</div>
+<div class="font-['Press_Start_2P'] uppercase text-xs tracking-tighter text-[#df8eff]">HI-SCORE: 9999</div>
+</nav>
+<!-- CRT Overlay -->
+<div class="fixed inset-0 z-[100] scanlines pointer-events-none opacity-30"></div>
+<main class="pt-16">
+<!-- Hero Section: Title Screen -->
+<section class="relative min-h-[921px] flex flex-col items-center justify-center bg-surface-container-lowest overflow-hidden">
+<div class="absolute inset-0 z-0 opacity-40">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-background"></div>
+<img class="w-full h-full object-cover" data-alt="Distant silhouette of a futuristic neon city skyline at night with vaporwave aesthetics and pixelated cloud textures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDen_sSkTO7quBSrooJ34lXB5Ktyrq78zPoO-KMUJiVYaexWs3Cw6RikCcEc9WqNp_0F3RApS83Wl1XACxMD7g-sXApVUsqnviEgZJT7tEJpzSF1t9wE2e_y_oNJZXOR4N8-JR5pCmLXubx7uBxySUrWmpyBnKoGMTYUoStyS5ZMbZX63OTu1RVKpjoaIcVrBSv2bMzXy-WNTsEggR5Z_wRT_E6PH-L4PqAEOh4pZd7jN4REBIiG8Ygak_lOl3XKFqaKm2qxgb1hPCT"/>
+</div>
+<div class="relative z-10 text-center space-y-8 px-4">
+<h2 class="font-['Press_Start_2P'] text-secondary text-sm md:text-xl animate-pulse tracking-widest drop-shadow-[0_0_10px_#00fbfb]">PRESS START TO BEGIN</h2>
+<h1 class="font-['Press_Start_2P'] text-primary text-4xl md:text-7xl leading-tight drop-shadow-[0_0_15px_#df8eff]">
+                    LEVEL_01:<br/>THE JOURNEY BEGINS
+                </h1>
+<div class="flex flex-col md:flex-row items-center justify-center gap-12 mt-12">
+<!-- Character Card -->
+<div class="w-64 bg-surface-container-high p-4 border-4 border-primary shadow-[0_0_20px_rgba(223,142,255,0.2)]">
+<div class="h-48 bg-surface-container-lowest mb-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-8xl" style="font-variation-settings: 'FILL' 1;">person_play</span>
+</div>
+<div class="font-['Press_Start_2P'] text-[10px] text-on-surface text-center space-y-2">
+<p>PLAYER: VOID_WALKER</p>
+<p class="text-secondary">LVL: 01</p>
+</div>
+</div>
+<!-- CTA Button -->
+<div class="flex flex-col items-center gap-6">
+<button class="bg-primary text-on-primary font-['Press_Start_2P'] text-xl py-6 px-12 arcade-button-shadow arcade-button-active hover:bg-primary-container transition-colors">
+                            START GAME
+                        </button>
+<div class="flex gap-4">
+<div class="w-4 h-4 bg-tertiary"></div>
+<div class="w-4 h-4 bg-secondary"></div>
+<div class="w-4 h-4 bg-primary"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Current Quests: Work (Bento Grid) -->
+<section class="py-24 px-6 md:px-12 bg-background">
+<div class="mb-16">
+<h2 class="font-['Press_Start_2P'] text-3xl text-secondary mb-4 drop-shadow-[0_0_5px_#00fbfb]">CURRENT QUESTS</h2>
+<div class="h-1 bg-surface-container-highest w-full relative">
+<div class="absolute top-0 left-0 h-full w-1/3 bg-secondary"></div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<!-- Large Feature -->
+<div class="md:col-span-2 md:row-span-2 bg-surface-container-high group cursor-pointer overflow-hidden border-2 border-transparent hover:border-primary transition-all">
+<div class="h-64 relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Digital concept art of a glowing cybernetic gateway floating in a dark void with neon purple and blue particles" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTneUMJtB62rpO6Nhrmh8b0WRUv_qrxmJ1BLlOEBY4G6S3wkJthw6p66Ql0IlkR5tGGRkHJvumj9LSlBYNoJ7hub0kDIqJXzzMfYIV1ylkE7CZfNdaeHKO75flLgjfBpObpSB8lNxBD5v5Jq9N5CFN96YnSxGR252F1BG0bsHnBY8qP8UqtkcQmb3KBYITPe6IvQ8COjDkxL9hsp2HFwKofsfOGguLjFRUrsiJ-4ErWxlIAwpCQtw52D4KLFxizdeLTpEDVqJ0eIc-"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+<div class="absolute bottom-4 left-4 font-['Press_Start_2P'] text-xs bg-primary text-on-primary px-3 py-1">MAIN QUEST</div>
+</div>
+<div class="p-6 space-y-4">
+<h3 class="text-2xl font-bold font-headline text-on-surface">PROJECT: NEON_ARCADE</h3>
+<p class="text-on-surface-variant font-light leading-relaxed">Developing a high-performance rendering engine for 2D retro-style experiences using modern framework constraints.</p>
+<div class="flex gap-2">
+<span class="text-[10px] font-['Press_Start_2P'] px-2 py-1 bg-surface-container-highest text-secondary">VUE.JS</span>
+<span class="text-[10px] font-['Press_Start_2P'] px-2 py-1 bg-surface-container-highest text-secondary">WEBGL</span>
+</div>
+</div>
+</div>
+<!-- Small Grid Items -->
+<div class="md:col-span-2 bg-surface-container-low p-6 flex flex-col md:flex-row gap-6 hover:bg-surface-bright transition-colors">
+<div class="w-full md:w-48 h-32 bg-surface-container-highest shrink-0">
+<img class="w-full h-full object-cover opacity-60" data-alt="Close up of mechanical keyboard switches with intense cyan and pink backlighting in a dark room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzw3-E6u-24S3ctsRo_3sGunVzD5ni1VZ5fVHYwtkqnl-EJid7iKCbeIclC0sw59BtiN5_gE7m2E07VLPqLTYcgbQxHMJ2C61Vhd1eADXSHinKmtSJBy_D69nA15Pvhh6dFOxpHt15bmb_P_yDTtV7Y6Qfi5LK4_dcMKuuMXOMxNRA6Ta2voplkuqShCoQSzVUgm2wjQxQiIlFRxXj3HsJg5ZXO6n0iSPxCqyg0vBpk-7SehGAXdmOzwoiYpM_Pm7QXUtpmnoZ11Ac"/>
+</div>
+<div class="space-y-2">
+<h3 class="text-xl font-bold font-headline text-on-surface">SIDE QUEST: KEY_BOARD</h3>
+<p class="text-sm text-on-surface-variant">Custom firmware development for ergonomic mechanical layouts.</p>
+<span class="inline-block text-[10px] font-['Press_Start_2P'] text-tertiary">IN PROGRESS...</span>
+</div>
+</div>
+<div class="md:col-span-1 bg-surface-container-low p-6 hover:bg-surface-bright transition-colors">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-secondary">terminal</span>
+<h3 class="text-lg font-bold font-headline">TERMINAL_UX</h3>
+</div>
+<p class="text-sm text-on-surface-variant mb-4">Reimagining command-line interfaces for creative workflows.</p>
+<div class="w-full h-1 bg-surface-container-highest">
+<div class="w-3/4 h-full bg-secondary"></div>
+</div>
+</div>
+<div class="md:col-span-1 bg-surface-container-low p-6 hover:bg-surface-bright transition-colors border-l-4 border-tertiary">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-tertiary">database</span>
+<h3 class="text-lg font-bold font-headline">VAULT_01</h3>
+</div>
+<p class="text-sm text-on-surface-variant">Secure asset management system with encrypted metadata layers.</p>
+<span class="text-[10px] font-['Press_Start_2P'] text-on-surface-variant">0/10 ITEMS FOUND</span>
+</div>
+</div>
+</section>
+<!-- Power-Ups: Skills -->
+<section class="py-24 px-6 md:px-12 bg-surface-container-lowest relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-30"></div>
+<div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+<div class="space-y-8">
+<h2 class="font-['Press_Start_2P'] text-3xl text-tertiary drop-shadow-[0_0_5px_#ff51fa]">POWER-UPS</h2>
+<p class="text-on-surface-variant text-lg leading-relaxed">
+                        Through rigorous training and countless late-night sessions, I have unlocked these specialized abilities to navigate the digital realm.
+                    </p>
+<div class="space-y-6">
+<!-- Skill 1 -->
+<div class="space-y-2">
+<div class="flex justify-between font-['Press_Start_2P'] text-[10px]">
+<span>FRONT-END ENGINE</span>
+<span class="text-secondary">MAX LEVEL</span>
+</div>
+<div class="flex gap-1 h-4">
+<div class="flex-1 bg-secondary"></div>
+<div class="flex-1 bg-secondary"></div>
+<div class="flex-1 bg-secondary"></div>
+<div class="flex-1 bg-secondary"></div>
+<div class="flex-1 bg-secondary"></div>
+<div class="flex-1 bg-secondary"></div>
+<div class="flex-1 bg-secondary"></div>
+<div class="flex-1 bg-secondary"></div>
+<div class="flex-1 bg-secondary"></div>
+<div class="flex-1 bg-secondary opacity-30"></div>
+</div>
+</div>
+<!-- Skill 2 -->
+<div class="space-y-2">
+<div class="flex justify-between font-['Press_Start_2P'] text-[10px]">
+<span>UI ARCHITECTURE</span>
+<span class="text-tertiary">LVL 85</span>
+</div>
+<div class="flex gap-1 h-4">
+<div class="flex-1 bg-tertiary"></div>
+<div class="flex-1 bg-tertiary"></div>
+<div class="flex-1 bg-tertiary"></div>
+<div class="flex-1 bg-tertiary"></div>
+<div class="flex-1 bg-tertiary"></div>
+<div class="flex-1 bg-tertiary"></div>
+<div class="flex-1 bg-tertiary"></div>
+<div class="flex-1 bg-tertiary"></div>
+<div class="flex-1 bg-tertiary opacity-30"></div>
+<div class="flex-1 bg-tertiary opacity-30"></div>
+</div>
+</div>
+<!-- Skill 3 -->
+<div class="space-y-2">
+<div class="flex justify-between font-['Press_Start_2P'] text-[10px]">
+<span>BACK-END LOGIC</span>
+<span class="text-primary">LVL 72</span>
+</div>
+<div class="flex gap-1 h-4">
+<div class="flex-1 bg-primary"></div>
+<div class="flex-1 bg-primary"></div>
+<div class="flex-1 bg-primary"></div>
+<div class="flex-1 bg-primary"></div>
+<div class="flex-1 bg-primary"></div>
+<div class="flex-1 bg-primary"></div>
+<div class="flex-1 bg-primary"></div>
+<div class="flex-1 bg-primary opacity-30"></div>
+<div class="flex-1 bg-primary opacity-30"></div>
+<div class="flex-1 bg-primary opacity-30"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-4 bg-tertiary opacity-10 blur-2xl group-hover:opacity-20 transition-opacity"></div>
+<div class="bg-surface-container-high p-8 border-4 border-[#352254] relative">
+<div class="grid grid-cols-2 gap-4">
+<div class="aspect-square bg-surface-container-highest flex flex-col items-center justify-center gap-3 hover:text-secondary transition-colors cursor-help">
+<span class="material-symbols-outlined text-4xl">javascript</span>
+<span class="font-['Press_Start_2P'] text-[8px]">SCRIPTS</span>
+</div>
+<div class="aspect-square bg-surface-container-highest flex flex-col items-center justify-center gap-3 hover:text-primary transition-colors cursor-help">
+<span class="material-symbols-outlined text-4xl">brush</span>
+<span class="font-['Press_Start_2P'] text-[8px]">DESIGN</span>
+</div>
+<div class="aspect-square bg-surface-container-highest flex flex-col items-center justify-center gap-3 hover:text-tertiary transition-colors cursor-help">
+<span class="material-symbols-outlined text-4xl">api</span>
+<span class="font-['Press_Start_2P'] text-[8px]">CONNECT</span>
+</div>
+<div class="aspect-square bg-surface-container-highest flex flex-col items-center justify-center gap-3 hover:text-on-surface transition-colors cursor-help">
+<span class="material-symbols-outlined text-4xl">bug_report</span>
+<span class="font-['Press_Start_2P'] text-[8px]">DEBUG</span>
+</div>
+</div>
+<div class="mt-8 p-4 bg-surface-container-lowest border-2 border-[#352254]">
+<p class="font-['Press_Start_2P'] text-[9px] text-on-surface-variant leading-loose">
+                                // CURRENT_BUFFS:<br/>
+                                &gt; ADVANCED_PROBLEM_SOLVER<br/>
+                                &gt; HIGH_RESOLUTION_CREATIVITY<br/>
+                                &gt; RAPID_LEVELING_MINDSET
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#000000] text-[#ff51fa] border-t-4 border-[#140727] flex flex-col md:flex-row justify-between items-center w-full px-8 py-10 gap-4">
+<div class="text-lg font-bold text-[#ff51fa] font-headline tracking-widest uppercase">LEVEL_01</div>
+<div class="font-['Space_Grotesk'] tracking-widest text-[10px] uppercase text-[#4f4165]">
+            © 199X RETRO_VOID - ALL COINS INSERTED
+        </div>
+<div class="flex gap-8 font-['Space_Grotesk'] tracking-widest text-[10px] uppercase">
+<a class="text-[#4f4165] hover:text-[#df8eff] underline decoration-double cursor-pointer transition-colors duration-150" href="#">CREDITS</a>
+<a class="text-[#4f4165] hover:text-[#df8eff] underline decoration-double cursor-pointer transition-colors duration-150" href="#">HARDWARE</a>
+<a class="text-[#4f4165] hover:text-[#df8eff] underline decoration-double cursor-pointer transition-colors duration-150" href="#">SUPPORT</a>
+</div>
+</footer>
+</body></html>
